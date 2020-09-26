@@ -6,10 +6,11 @@
 <script>
 
 // Choices available in the game, stored in a global array.
-let gameChoices = ['rock', 'paper', 'scissor']
+//let gameChoices = ['rock', 'paper', 'scissor'];
 
 // Randomly return rock, paper or scissors.
 function computerPlay() {
+    let gameChoices = ['rock', 'paper', 'scissor'];
     let randomChoice = Math.floor(Math.random() * gameChoices.length);
     return gameChoices[randomChoice]
 }
@@ -29,26 +30,30 @@ function userPlay(){
 function playRound(computer=computerPlay(), player=userPlay()) {
 
     if (computer == player){
-        alert("Both chose " + computer + ", replay Round");
-        playRound();
+        alert("Both chose " + computer + ", replay round");
+        return playRound();
     }
     else if (computer == 'rock' && player == 'scissor'){
-        console.log("Computer won as rock beats scissor");       
+        return "Computer won as rock beats scissor";
+
     }
     else if (computer == 'rock' && player == 'paper'){
-        console.log("You win as paper beats rock");       
+        return "You win as paper beats rock";    
     }
     else if (computer == 'scissor' && player == 'rock'){
-        console.log("You win as rock beats scissor");       
+        return "You win as rock beats scissor";
+    
     }
     else if (computer == 'scissor' && player == 'paper'){
-        console.log("Computer won as scissors beats paper");       
+        return "Computer won as scissor beats paper";
+     
     }
     else if (computer == 'paper' && player == 'scissor'){
-        console.log("You won as scissor beats paper");       
+        return "You won as scissor beats paper";
+         
     }
     else if (computer == 'paper' && player == 'rock'){
-        console.log("Computer won as paper beats rock");       
+        return "Computer won as paper beats rock";      
     }
     else {
         return;
@@ -56,6 +61,25 @@ function playRound(computer=computerPlay(), player=userPlay()) {
 }
 
 
+// Function that runs five rounds of the game.
+
+function playGame() {
+    
+    round1 = playRound();
+    console.log(round1)
+
+    round2 = playRound();
+    console.log(round2)
+
+    round3 = playRound();
+    console.log(round3)
+
+    round4 = playRound();
+    console.log(round4)
+
+    round5 = playRound();
+    console.log(round5)
+}
 
 </script>
 
