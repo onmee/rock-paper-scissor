@@ -34,26 +34,28 @@ function playRound(computer=computerPlay(), player=userPlay()) {
         return playRound();
     }
     else if (computer == 'rock' && player == 'scissor'){
-        return "Computer won as rock beats scissor";
+        // A return array[a,b,c] with results. 1=win and 0=loss.
+        // Where a=output text, b=computer win/loss, c=player win/loss. 
+        return ["Computer won as rock beats scissor", 1, 0];
 
     }
     else if (computer == 'rock' && player == 'paper'){
-        return "You win as paper beats rock";    
+        return ["You win as paper beats rock", 0, 1];    
     }
     else if (computer == 'scissor' && player == 'rock'){
-        return "You win as rock beats scissor";
+        return ["You win as rock beats scissor", 0, 1];
     
     }
     else if (computer == 'scissor' && player == 'paper'){
-        return "Computer won as scissor beats paper";
+        return ["Computer won as scissor beats paper", 1, 0];
      
     }
     else if (computer == 'paper' && player == 'scissor'){
-        return "You won as scissor beats paper";
+        return ["You won as scissor beats paper", 0, 1];
          
     }
     else if (computer == 'paper' && player == 'rock'){
-        return "Computer won as paper beats rock";      
+        return ["Computer won as paper beats rock", 1, 0];      
     }
     else {
         return;
