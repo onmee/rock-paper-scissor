@@ -5,9 +5,6 @@
 
 <script>
 
-// Choices available in the game, stored in a global array.
-//let gameChoices = ['rock', 'paper', 'scissor'];
-
 // Randomly return rock, paper or scissors.
 function computerPlay() {
     let gameChoices = ['rock', 'paper', 'scissor'];
@@ -15,17 +12,16 @@ function computerPlay() {
     return gameChoices[randomChoice]
 }
 
-
 // Ask user to enter rock, paper or scissor. Must be case insensitive.
 function userPlay(){
     let userChoice = prompt("Enter 'rock', 'paper' or 'scissor' to begin game:").toLowerCase();
     return userChoice
 }
 
-
 // Play round function. Restarted if both players have the same choice.
 // Conditionals to check who wins based on rules of the game.
-// Rock>Scissor, Scissor>Paper, Paper>Rock
+// Return the output text and scores in an array.
+// Rules are : Rock>Scissor, Scissor>Paper, Paper>Rock.
 
 function playRound(computer=computerPlay(), player=userPlay()) {
 
@@ -37,7 +33,6 @@ function playRound(computer=computerPlay(), player=userPlay()) {
         // A return array[a,b,c] with results. 1=win and 0=loss.
         // Where a=output text, b=computer win/loss, c=player win/loss. 
         return ["Computer won as rock beats scissor", 1, 0];
-
     }
     else if (computer == 'rock' && player == 'paper'){
         return ["You win as paper beats rock", 0, 1];    
@@ -64,23 +59,48 @@ function playRound(computer=computerPlay(), player=userPlay()) {
 
 
 // Function that runs five rounds of the game.
+// Scores initialised at 0, and returned values from arrays are added.
 
 function playGame() {
+
+    alert('Challenge yourself against the computer over 5 rounds. Good Luck!')
+
+    let computerScore = 0;
+    let playerScore = 0;
     
     round1 = playRound();
-    console.log(round1)
+    console.log(round1[0]);
+    computerScore += round1[1];
+    playerScore += round1[2];
 
     round2 = playRound();
-    console.log(round2)
+    console.log(round2[0]);
+    computerScore += round2[1];
+    playerScore += round2[2];
 
     round3 = playRound();
-    console.log(round3)
+    console.log(round3[0]);
+    computerScore += round3[1];
+    playerScore += round3[2];
 
     round4 = playRound();
-    console.log(round4)
+    console.log(round4[0]);
+    computerScore += round4[1];
+    playerScore += round4[2];
 
     round5 = playRound();
-    console.log(round5)
+    console.log(round5[0]);
+    computerScore += round5[1];
+    playerScore += round5[2];
+
+    if (computerScore > playerScore){
+        console.log("Computer won the game, it scored: " + computerScore);
+        console.log("You scored:" + playerScore);
+    }
+    else {
+        console.log("You won the game!!! You scored: " + playerScore);
+        console.log("Computer scored:" + computerScore);
+    }
 }
 
 </script>
