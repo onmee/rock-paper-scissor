@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+
+<body>
+
+<script>
+
+// Choices available in the game, stored in a global array.
+let gameChoices = ['rock', 'paper', 'scissor']
+
+// Randomly return rock, paper or scissors.
+function computerPlay() {
+    let randomChoice = Math.floor(Math.random() * gameChoices.length);
+    return gameChoices[randomChoice]
+}
+
+
+// Ask user to enter rock, paper or scissor. Must be case insensitive.
+function userPlay(){
+    let userChoice = prompt("Enter 'rock', 'paper' or 'scissor' to begin game:").toLowerCase();
+    return userChoice
+}
+
+
+// Play round function. Restarted if both players have the same choice.
+// Conditionals to check who wins based on rules of the game.
+// Rock>Scissor, Scissor>Paper, Paper>Rock
+
+function playRound(computer=computerPlay(), player=userPlay()) {
+
+    if (computer == player){
+        alert("Both chose " + computer + ", replay Round");
+        playRound();
+    }
+    else if (computer == 'rock' && player == 'scissor'){
+        console.log("Computer won as rock beats scissor");       
+    }
+    else if (computer == 'rock' && player == 'paper'){
+        console.log("You win as paper beats rock");       
+    }
+    else if (computer == 'scissor' && player == 'rock'){
+        console.log("You win as rock beats scissor");       
+    }
+    else if (computer == 'scissor' && player == 'paper'){
+        console.log("Computer won as scissors beats paper");       
+    }
+    else if (computer == 'paper' && player == 'scissor'){
+        console.log("You won as scissor beats paper");       
+    }
+    else if (computer == 'paper' && player == 'rock'){
+        console.log("Computer won as paper beats rock");       
+    }
+    else {
+        return;
+    }
+}
+
+
+
+</script>
+
+</body>
