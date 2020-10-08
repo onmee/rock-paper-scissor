@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+
+<body>
+
+<script>
+
+// Randomly return rock, paper or scissors.
+function computerPlay() {
+    let gameChoices = ['rock', 'paper', 'scissor'];
+    let randomChoice = Math.floor(Math.random() * gameChoices.length);
+    return gameChoices[randomChoice]
+}
+
+// Ask user to enter rock, paper or scissor. Must be case insensitive.
+function userPlay(){
+    let userChoice = prompt("Enter 'rock', 'paper' or 'scissor' to begin game:").toLowerCase();
+    return userChoice
+}
+
+// Rules are : Rock>Scissor, Scissor>Paper, Paper>Rock.
+// Zero sum game, so restarted if both players have the same choice.
+// Conditionals to check who wins based on rules of the game.
+// Return the output text and scores in an array.
+
+function playRound(computer=computerPlay(), player=userPlay()) {
+
+    if (computer == player){
+        alert("Both chose " + computer + ", replay round");
+        return playRound();
+    }
+    else if (computer == 'rock' && player == 'scissor'){
+        // A return array[a,b,c] with results. 1=win and 0=loss.
+        // Where a=output text, b=computer win/loss, c=player win/loss. 
+        return ["Computer won as rock beats scissor", 1, 0];
+    }
+    else if (computer == 'rock' && player == 'paper'){
+        return ["You win as paper beats rock", 0, 1];    
+    }
+    else if (computer == 'scissor' && player == 'rock'){
+        return ["You win as rock beats scissor", 0, 1];
+    
+    }
+    else if (computer == 'scissor' && player == 'paper'){
+        return ["Computer won as scissor beats paper", 1, 0];
+     
+    }
+    else if (computer == 'paper' && player == 'scissor'){
+        return ["You won as scissor beats paper", 0, 1];
+         
+    }
+    else if (computer == 'paper' && player == 'rock'){
+        return ["Computer won as paper beats rock", 1, 0];      
+    }
+    else {
+        return;
+    }
+}
+
+
+// Function that runs five rounds of the game.
+// Scores initialised at 0, and returned values from arrays are added.
+
+function playGame() {
+
+    alert('Challenge yourself against the computer over 5 rounds. Good Luck!');
+
+    let computerScore = 0;
+    let playerScore = 0;
+    
+    round1 = playRound();
+    console.log(round1[0]);
+    computerScore += round1[1];
+    playerScore += round1[2];
+
+    round2 = playRound();
+    console.log(round2[0]);
+    computerScore += round2[1];
+    playerScore += round2[2];
+
+    round3 = playRound();
+    console.log(round3[0]);
+    computerScore += round3[1];
+    playerScore += round3[2];
+
+    round4 = playRound();
+    console.log(round4[0]);
+    computerScore += round4[1];
+    playerScore += round4[2];
+
+    round5 = playRound();
+    console.log(round5[0]);
+    computerScore += round5[1];
+    playerScore += round5[2];
+
+    if (computerScore > playerScore){
+        console.log("Computer won the game, it scored: " + computerScore);
+        console.log("You scored:" + playerScore);
+    }
+    else {
+        console.log("You won the game!!! You scored: " + playerScore);
+        console.log("Computer scored:" + computerScore);
+    }
+}
+
+</script>
+
+</body>
