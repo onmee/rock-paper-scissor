@@ -18,10 +18,10 @@ function userPlay(){
     return userChoice
 }
 
-// Play round function. Restarted if both players have the same choice.
+// Rules are : Rock>Scissor, Scissor>Paper, Paper>Rock.
+// Zero sum game, so restarted if both players have the same choice.
 // Conditionals to check who wins based on rules of the game.
 // Return the output text and scores in an array.
-// Rules are : Rock>Scissor, Scissor>Paper, Paper>Rock.
 
 function playRound(computer=computerPlay(), player=userPlay()) {
 
@@ -63,7 +63,7 @@ function playRound(computer=computerPlay(), player=userPlay()) {
 
 function playGame() {
 
-    alert('Challenge yourself against the computer over 5 rounds. Good Luck!')
+    alert('Challenge yourself against the computer over 5 rounds. Good Luck!');
 
     let computerScore = 0;
     let playerScore = 0;
