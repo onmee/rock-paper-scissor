@@ -3,16 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
+    <title>Rock Paper Scissors</title>
 </head>
    
 
-
 <body>
+
+    <h2>Click rock, paper and scissor to play. First to score 5 wins. Good Luck!</h2>
 <div class="content">
     <button type="button" id="rock">Rock</button>
     <button type="button" id="paper">Paper</button>
     <button type="button" id="scissor">Scissor</button>
 </div>
 
+<div class="result">
+    <div class="shadowbox">
+        <p><b>Computer Chose:</b><span id="comp"></span></p>
+        <p><b>You Chose:</b><span id="user"></span></p>
+        <p id="message"></p>
+    </div>
+    <div class="shadowbox">
+        <span><b>Scores</b></span>
+        <p>You:<span id="score1"></span></p>
+        <p>Computer:<span id="score2"></span></p>
+    </div>
+</div>
+
 <script src="game.js"></script>
+
 </body>
